@@ -110,16 +110,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // funcion q al cambiar cmbbx sevicios cambia el titulo
 
   document.getElementById("servicios").addEventListener("click",function(){
-    var index = document.getElementById("servicios").selectedIndex;
-     //var serv = document.getElementById("servicios");
-     //document.getElementById('title').value = document.getElementById(serv).text;
-     //document.getElementById('title').value = document.getElementById("servicios").value;
-    // document.getElementById('title').value = document.getElementById("servicios").title;
 
       var serv = document.getElementById('servicios');
       var texto = serv.options[serv.selectedIndex].innerHTML;
       document.getElementById('title').value = texto;
     }); 
+
+   // funcion q al cambiar cmbbx clientes cambia el titulo
+
+   document.getElementById("clientes").addEventListener("click",function(){
+
+    var serv = document.getElementById('clientes');
+    var texto = serv.options[serv.selectedIndex].innerHTML;
+    document.getElementById('descripcion').value = texto;
+  });    
 
 
 
@@ -177,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //actualiza eventos de url, "refresca"
         respuesta.data.start = 
         calendar.refetchEvents();
-        $("#boton").modal("hide");
+        //$("#boton").modal("hide");
       }
       ).catch(
         error=>{

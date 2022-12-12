@@ -37,17 +37,17 @@
 
             <div class="form-row">
 
-              <div class="form-group col-md-8">
+              <div class="form-group col-md-8 d-none" >
                 <label for="title">Titulo</label>
                 {{-- EN INGLES ID POR QUE FULLCALENDAR LO USA ASI --}}
-                <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el titulo del evento">
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el titulo del evento" required>
               </div>
               <P></P>
 
               <label for="clientes">Cliente:</label>
-              <select name="clientes" id="clientes">
+              <select name="clientes" id="clientes" required>
                 <optgroup label="Clientes inscritos">
-                  <option value="none">---</option>
+                  <option value=""></option>
                   @foreach ($clientes as $cl)
 
                   <option value="{{$cl->rut}}">{{$cl->nombre}}</option>
@@ -58,9 +58,9 @@
               </select>
 
               <label for="servicios">Servicio:</label>
-              <select name="servicios" id="servicios" >
+              <select name="servicios" id="servicios" required>
                 <optgroup label="Servicios disponibles">
-                  <option value="none">---</option>
+                  <option value="">None</option>
                   @foreach ($servicios as $sv)
 
                   <option value="{{$sv->tipo_servicio}}">{{$sv->tipo_servicio}}</option>
@@ -71,7 +71,7 @@
               </select>
               <div class="form-group col-md-4">
                 <label >Hora</label>
-                <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora">
+                <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
               </div>
 
               <div class="form-group col-md-4 d-none">
@@ -85,7 +85,7 @@
 
             <div class="form-group">
               <label for="descripcion">Descripcion evento</label>
-              <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+              <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
             </div>
 
             
@@ -105,7 +105,7 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" id="btnGuardar" >Guardar</button>
+              <button type="submit" class="btn btn-success" id="btnGuardar" >Guardar</button>
               <button type="button" class="btn btn-warning" id="btnModificar" >Modificar</button>
               <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
