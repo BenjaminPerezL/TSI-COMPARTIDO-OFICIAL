@@ -126,11 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });    
 
 
+  //FUNCION Q GUARDA AL HACER SUBMIT EL FORM
+
+  //document.getElementById("formularioEvento").addEventListener('submit', enviarDatos("/agenda/agregar"));
+
+ 
+
 
 
   //CLICK EN BTN GUARDAR
-  // al hacer click en btn guardar, se recolectan datos ingresados
-  document.getElementById("btnGuardar").addEventListener("click",function(){
+  //al hacer click en btn guardar, se recolectan datos ingresados
+  document.getElementById("formularioEvento").addEventListener("submit",function(){
     
     enviarDatos("/agenda/agregar");
   });
@@ -148,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //FUNCION EDITAR Y BORRAR
   function enviarDatos(url){
     formulario.start.value = formulario.start.value.substring(0,10)+" "+document.getElementById('txtHora').value
-
+    alert(formulario.start.value );
     var hora = document.getElementById('txtHora').value.substring(0,2);
     hora = parseInt(hora, 10);
     var minutos = document.getElementById('txtHora').value.substring(3,5)

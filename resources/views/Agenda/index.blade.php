@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           {{-- BODY FORMULARIO DIA--}}
-          <form action="" id="formularioEvento">
+          <form action="" id="formularioEvento" >
 
             {{-- token q permite identificar q info llega desde este form --}}
             {{ csrf_field() }}
