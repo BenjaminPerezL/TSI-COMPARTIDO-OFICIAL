@@ -41,7 +41,7 @@
                             <button type="reset" class="btn btn-warning btn-block">Cancelar</button>
                         </div>
                         <div class="col-12 col-lg-3 mt-1 mt-lg-0">
-                            <button type="submit" class="btn btn-info btn-block">Editar</button>
+                            <button type="submit" class="btn btn-info btn-block">Editarrrrr</button>
                         </div>
                     </div>
                 </div>
