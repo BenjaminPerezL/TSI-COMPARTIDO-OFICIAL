@@ -76,7 +76,14 @@
                 <label >Hora</label>
                 <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
               </div>
-
+              <p></p>
+              <div class="form-group">
+                <label for="estado">Estado: </label>
+                <select name="estado" id="estado">
+                    <option value="espera">Espera</option>
+                    <option value="completado">Completado</option>
+                </select>
+            </div>
               <div class="form-group col-md-4 d-none">
                 <label >Test</label>
                 <input type="text"  class="form-control" name="txtHora" id="test" aria-describedby="helpId" placeholder="test">

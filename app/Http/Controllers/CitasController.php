@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evento;
 use Illuminate\Http\Request;
 use App\Models\Cita;
 use App\Models\Cliente;
@@ -16,8 +17,9 @@ class CitasController extends Controller
         $citas = Cita::all() ;
         $clientes = Cliente::all();
         $servicios = Servicio::all();
-        return view('citas.index')->with(compact("citas"))->with(compact("clientes"))->with(compact("servicios"));
-       
+        $eventos = Evento::all();
+        return view('citas.index')->with(compact("citas"))->with(compact("clientes"))->with(compact("servicios"))->with(compact("eventos"));
+                                
     
     }
     

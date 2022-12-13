@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 
-  //FUNCION EDITAR Y BORRAR
+  //FUNCION QUE ENVIA DATOS, EDITA Y BORRA
   function enviarDatos(url){
     formulario.start.value = formulario.start.value.substring(0,10)+" "+document.getElementById('txtHora').value
     //alert(formulario.start.value );
@@ -197,8 +197,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     formulario.end.value = formulario.start.value.substring(0,10)+" "+hora+":"+minutos
     
-
-
+    var est = document.getElementById('estado');
+    var estado = est.options[est.selectedIndex].innerHTML;
+    formulario.descripcion.value +="-"+estado ;
     const datos=new FormData(formulario);
     const nuevaURL = baseURL+url;
     //axios permite enviar info( url , datos)
@@ -221,8 +222,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  function mediaHora(){
-
+  function enviarEventoCita(){
+    const datosEvento=new FormData(formulario);
+    axios.post("localhost:8000/citas", {
+      rut_cliente: datosEvento.start,
+      tipo_servicio: tipo_servicio,
+      fecha: fecha,
+      hora: hora,
+      descripcion: descripcion,
+      estado: estado,
+    })
+    .then((response) => {
+      console.log(response);
+    });
   }
 
   //CAMBIAR HORA 
