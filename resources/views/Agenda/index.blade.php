@@ -46,9 +46,9 @@
               
              
               <label for="clientes">Cliente:</label>
-              <select name="clientes" id="clientes" :required>
+              <select name="clientes" id="clientes" required>
                 {{-- <optgroup label="Clientes inscritos"> --}}
-                  <option value=""></option>
+                  <option value="">None</option>
                   @foreach ($clientes as $cl)
 
                   <option value="{{$cl->rut}}">{{$cl->nombre}}</option>
@@ -57,12 +57,12 @@
                 </optgroup>
                 
               </select>
-              <label id="errorCliente"></label>
+              <label id="errorCliente" style="color: red"></label>
               <p></p>
               <label for="servicios">Servicio:</label>
-              <select name="servicios" id="servicios" :required>
+              <select name="servicios"  id="servicios"  required>
                 {{-- <optgroup label="Servicios disponibles"> --}}
-                  <option value=""></option>
+                  <option value="">None</option>
                   @foreach ($servicios as $sv)
 
                   <option value="{{$sv->tipo_servicio}}">{{$sv->tipo_servicio}}</option>
@@ -71,7 +71,7 @@
                 </optgroup>
                 
               </select>
-              <label id="errorServicio"></label>
+              <label id="errorServicio" style="color: red"></label>
               <div class="form-group col-md-4">
                 <label >Hora</label>
                 <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
@@ -83,7 +83,7 @@
               </div>
               
             </div>
-
+            
             <P></P>
 
             <div class="form-group d-none">
