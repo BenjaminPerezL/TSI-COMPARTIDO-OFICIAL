@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           {{-- BODY FORMULARIO DIA--}}
-          <form action="" id="formularioEvento">
+          <form action="" id="formularioEvento" >
 
             {{-- token q permite identificar q info llega desde este form --}}
             {{ csrf_field() }}
@@ -42,12 +42,13 @@
                 {{-- EN INGLES ID POR QUE FULLCALENDAR LO USA ASI --}}
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el titulo del evento" required>
               </div>
-              <P></P>
-
+              
+              
+             
               <label for="clientes">Cliente:</label>
               <select name="clientes" id="clientes" required>
-                <optgroup label="Clientes inscritos">
-                  <option value=""></option>
+                {{-- <optgroup label="Clientes inscritos"> --}}
+                  <option value="">None</option>
                   @foreach ($clientes as $cl)
 
                   <option value="{{$cl->rut}}">{{$cl->nombre}}</option>
@@ -56,10 +57,11 @@
                 </optgroup>
                 
               </select>
-
+              <label id="errorCliente" style="color: red"></label>
+              <p></p>
               <label for="servicios">Servicio:</label>
-              <select name="servicios" id="servicios" required>
-                <optgroup label="Servicios disponibles">
+              <select name="servicios"  id="servicios"  required>
+                {{-- <optgroup label="Servicios disponibles"> --}}
                   <option value="">None</option>
                   @foreach ($servicios as $sv)
 
@@ -69,21 +71,29 @@
                 </optgroup>
                 
               </select>
+              <label id="errorServicio" style="color: red"></label>
               <div class="form-group col-md-4">
                 <label >Hora</label>
                 <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
               </div>
-
+              <p></p>
+              <div class="form-group">
+                <label for="estado">Estado: </label>
+                <select name="estado" id="estado">
+                    <option value="espera">Espera</option>
+                    <option value="completado">Completado</option>
+                </select>
+            </div>
               <div class="form-group col-md-4 d-none">
                 <label >Test</label>
                 <input type="text"  class="form-control" name="txtHora" id="test" aria-describedby="helpId" placeholder="test">
               </div>
               
             </div>
-
+            
             <P></P>
 
-            <div class="form-group">
+            <div class="form-group d-none">
               <label for="descripcion">Descripcion evento</label>
               <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
             </div>

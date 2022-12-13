@@ -126,11 +126,38 @@ document.addEventListener('DOMContentLoaded', function() {
   });    
 
 
+  //FUNCION Q GUARDA AL HACER SUBMIT EL FORM
+
+  //document.getElementById("formularioEvento").addEventListener('submit', enviarDatos("/agenda/agregar"));
+
+ 
 
 
-  //CLICK EN BTN GUARDAR
-  // al hacer click en btn guardar, se recolectan datos ingresados
+
+  //-----------CLICK EN BTN GUARDAR, VALIDACIONES
   document.getElementById("btnGuardar").addEventListener("click",function(){
+    var serv = document.getElementById('servicios');
+    var errorServ = serv.options[serv.selectedIndex].innerHTML;
+    var clie = document.getElementById('clientes');
+    var errorClie = clie.options[clie.selectedIndex].innerHTML;
+    
+    if(errorServ==""){
+      document.getElementById('errorServicio').textContent = "Debe elegir un servicio";
+    }else{
+      document.getElementById('errorServicio').textContent = "";
+    }
+    if(errorClie==""){
+      document.getElementById('errorCliente').textContent = "Debe elegir un cliente";
+    }else{
+      document.getElementById('errorCliente').textContent = "";
+    }
+
+  });
+
+
+  //---------FUNCION Q GUARDA AL HACER SUBMIT EL FORM-------------
+
+  document.getElementById("formularioEvento").addEventListener("submit",function(){
     
     enviarDatos("/agenda/agregar");
   });
@@ -145,10 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 
-  //FUNCION EDITAR Y BORRAR
+  //FUNCION QUE ENVIA DATOS, EDITA Y BORRA
   function enviarDatos(url){
     formulario.start.value = formulario.start.value.substring(0,10)+" "+document.getElementById('txtHora').value
-
+    //alert(formulario.start.value );
     var hora = document.getElementById('txtHora').value.substring(0,2);
     hora = parseInt(hora, 10);
     var minutos = document.getElementById('txtHora').value.substring(3,5)
@@ -170,8 +197,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     formulario.end.value = formulario.start.value.substring(0,10)+" "+hora+":"+minutos
     
-
-
+    var est = document.getElementById('estado');
+    var estado = est.options[est.selectedIndex].innerHTML;
+    formulario.descripcion.value +="-"+estado ;
     const datos=new FormData(formulario);
     const nuevaURL = baseURL+url;
     //axios permite enviar info( url , datos)
@@ -194,8 +222,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  function mediaHora(){
-
+  function enviarEventoCita(){
+    const datosEvento=new FormData(formulario);
+    axios.post("localhost:8000/citas", {
+      rut_cliente: datosEvento.start,
+      tipo_servicio: tipo_servicio,
+      fecha: fecha,
+      hora: hora,
+      descripcion: descripcion,
+      estado: estado,
+    })
+    .then((response) => {
+      console.log(response);
+    });
   }
 
   //CAMBIAR HORA 

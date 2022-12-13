@@ -32,6 +32,7 @@ class EventosController extends Controller
 
         //crea con todos los datos llegados
         $evento = Evento::create($request->all());
+
         
     }
 
