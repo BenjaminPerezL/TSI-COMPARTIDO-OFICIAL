@@ -52,6 +52,11 @@
                                 </button>
                             </form>
                         </td>
+                        <td class="text-center" style="width: 1rem">
+                            <a href="{{route("citas.edit",$ct->id)}}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Editar Cliente">
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
@@ -63,12 +68,29 @@
                     Agregar Cita
                     <div class="card-body">
                         <form method="POST" action="{{route("citas.store")}}">
+
+                        @error('rut_cliente')
+                            <div class="alert alert-danger">{{ 'El cliente es requerido' }}</div>
+                        @enderror
+                
+                        @error('tipo_servicio')
+                            <div class="alert alert-danger">{{ 'El servicio es requerido' }}</div>
+                        @enderror
+                        @error('fecha')
+                        <div class="alert alert-danger">{{ 'La fecha es requerida' }}</div>
+                        @enderror
+                        @error('hora')
+                        <div class="alert alert-danger">{{ 'La hora es requerida' }}</div>
+                        @enderror
+                        @error('descripcion')
+                        <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
+                        @enderror
                             @csrf
                             
                         <label for="rut_cliente">Cliente:</label>
                         <select name="rut_cliente" id="rut_cliente">
                             <optgroup label="Clientes inscritos">
-                            <option value="none">---</option>
+                            <option ></option>
                                 @foreach ($clientes as $cl)
 
                                     <option value="{{$cl->rut}}">{{$cl->nombre}}</option>
@@ -80,7 +102,7 @@
                         <label for="tipo_servicio">Servicio:</label>
                         <select name="tipo_servicio" id="tipo_servicio" >
                           <optgroup label="Servicios disponibles">
-                            <option value="none">---</option>
+                            <option></option>
                             @foreach ($servicios as $sv)
           
                             <option value="{{$sv->tipo_servicio}}">{{$sv->tipo_servicio}}</option>
@@ -91,11 +113,11 @@
                         </select>
                             <div class="form-group">
                                 <label for="fecha">Fecha: </label>
-                                <input type="date" id = "fecha" name="fecha" class="form-control">
+                                <input type="date" id = "fecha" name="fecha" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                 <label for="hora">Hora: </label>
-                                <input type="time" id = "hora" name="hora" class="form-control">
+                                <input type="time" id = "hora" name="hora" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Descripcion: </label>
@@ -110,7 +132,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <button class="btn btn-info">Aceptar</button>
+                                <button class="btn btn-info" type="submit">Aceptar</button>
 
                                 <button class="btn btn-warning" type="reset">Cancelar</button>
                             </div>

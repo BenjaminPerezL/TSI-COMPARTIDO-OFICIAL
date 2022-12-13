@@ -15,6 +15,12 @@ class ClientesController extends Controller
         return view('clientes.index',compact("clientes"));
     }
     public function store(Request $request){
+        $this->validate($request,[
+            'rut'=> 'required|unique:clientes',
+            'nombre'=> 'required',
+            'mail'=> 'required',
+            
+        ]);
         $cliente = new Cliente();
         $cliente->nombre = $request->nombre;
         $cliente->rut = $request->rut;
@@ -31,6 +37,13 @@ class ClientesController extends Controller
         return view("clientes.edit",compact("cliente"));
     }
     public function update(Cliente $cliente,Request $request){
+        $this->validate($request,[
+            'rut'=> 'required',
+            'nombre'=> 'required',
+            'mail'=> 'required',
+            
+        ]);
+        
         $cliente->nombre = $request->nombre;
         $cliente->rut = $request->rut;
         $cliente->mail = $request->mail;

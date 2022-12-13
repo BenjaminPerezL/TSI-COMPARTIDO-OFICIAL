@@ -7,7 +7,17 @@
     <div class="card">
         <div class="card-header">Formulario de edición</div>
         <div class="card-body">
-            <form method="POST" action="{{route('clientes.update',$cliente->id)}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('clientes.update',$cliente->rut)}}" enctype="multipart/form-data">
+
+                @error('rut')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                @error('nombre')
+                    <div class="alert alert-danger">{{ $message}}</div>
+                @enderror
+                @error('mail')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 @csrf
                 @method('put')
                 <div class="form-group">

@@ -17,6 +17,13 @@ class ServiciosController extends Controller
     }
     
     public function store(Request $request){
+        $this->validate($request,[
+            'tipo_servicio'=> 'required',
+            'valor_estandar'=> 'required',
+            'duracion_estandar'=> 'required',
+            
+        ]);
+
         $servicio = new Servicio();
         $servicio->tipo_servicio = $request->tipo_servicio;
         $servicio->valor_estandar = $request->valor_estandar;
@@ -37,6 +44,13 @@ class ServiciosController extends Controller
         return view("servicios.edit",compact("servicio"));
     }
     public function update(Servicio $servicio,Request $request){
+        $this->validate($request,[
+            'tipo_servicio'=> 'required',
+            'valor_estandar'=> 'required',
+            'duracion_estandar'=> 'required',
+            
+        ]);
+
         $servicio->tipo_servicio = $request->tipo_servicio;
         $servicio->valor_estandar = $request->valor_estandar;
         $servicio->duracion_estandar = $request->duracion_estandar;

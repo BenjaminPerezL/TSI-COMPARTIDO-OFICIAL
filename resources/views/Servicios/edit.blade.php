@@ -8,6 +8,16 @@
         <div class="card-header">Formulario de edición</div>
         <div class="card-body">
             <form method="POST" action="{{route('servicios.update',$servicio->id)}}" enctype="multipart/form-data">
+                @error('tipo_servicio')
+                    <div class="alert alert-danger">{{ 'El Tipo de servicio debe ingresarse' }}</div>
+                @enderror
+                @error('duracion_estandar')
+                    <div class="alert alert-danger">{{ 'La duracion estandar del servicio debe ingresarse'}}</div>
+                @enderror
+                @error('valor_estandar')
+                    <div class="alert alert-danger">{{ 'El valor estandar del servicio debe ingresarse'}}</div>
+                 @enderror
+
                 @csrf
                 @method('put')
                 <div class="form-group">

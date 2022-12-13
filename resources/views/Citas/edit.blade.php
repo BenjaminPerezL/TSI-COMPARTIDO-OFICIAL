@@ -8,15 +8,80 @@
         <div class="card-header">Formulario de edición</div>
         <div class="card-body">
             <form method="POST" action="{{route('citas.update',$cita->id)}}" enctype="multipart/form-data">
+
+                @error('rut_cliente')
+                <div class="alert alert-danger">{{ 'El cliente es requerido' }}</div>
+                 @enderror
+    
+                @error('tipo_servicio')
+                    <div class="alert alert-danger">{{ 'El servicio es requerido' }}</div>
+                @enderror
+                @error('fecha')
+                    <div class="alert alert-danger">{{ 'La fecha es requerida' }}</div>
+                @enderror
+                @error('hora')
+                    <div class="alert alert-danger">{{ 'La hora es requerida' }}</div>
+                @enderror
+                @error('descripcion')
+                    <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
+                @enderror
+
+
                 @csrf
                 @method('put')
                 <div class="form-group">
-                    <label for="rut_cliente">Rut: </label>
-                    <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" value="{{$cita->rut_cliente}}">
+                <label for="rut_cliente">Cliente:</label>
+                        <select name="rut_cliente" id="rut_cliente">
+                            <optgroup label="Clientes inscritos">
+                            <option value="{{$cita->rut_cliente}}"><?php foreach ($clientes as $cl) {
+                                if ($cita->rut_cliente == $cl->rut) {
+                                    echo $cl->nombre;
+                                }
+                                
+                            }?></option>
+                                <option value="<?php foreach ($clientes as $cl) {
+                                    if ($cita->rut_cliente != $cl->rut) {
+                                        echo $cl->rut;
+                                    }
+                                    else {
+                                        
+                                    }
+                                    
+                                }?>"><?php foreach ($clientes as $cl) {
+                                if ($cita->rut_cliente != $cl->rut) {
+                                    echo $cl->nombre;
+                                }
+                                
+                            }?></option>
+                            </optgroup>
+                
+                        </select>
                 </div>
                 <div class="form-group">
-                    <label for="tipo_servicio">Tipo de servicio: </label>
-                    <input type="text" id="tipo_servicio" name="tipo_servicio" class="form-control" value="{{$cita->tipo_servicio}}">
+                    <label for=""></label>
+                </div>
+                <div class="form-group">
+                    <label for="tipo_servicio">Servicio:</label>
+                        <select name="tipo_servicio" id="tipo_servicio" >
+                          <optgroup label="Servicios disponibles">
+                            <option value="{{$cita->tipo_servicio}}">{{$cita->tipo_servicio}}</option>
+                            <option value="<?php foreach ($servicios as $sv) {
+                                if ($cita->tipo_servicio != $sv->tipo_servicio) {
+                                    echo $sv->tipo_servicio;
+                                }
+                                else {
+                                    
+                                }
+                                
+                            }?>"><?php foreach ($servicios as $sv) {
+                                if ($cita->tipo_servicio != $sv->tipo_servicio) {
+                                    echo $sv->tipo_servicio;
+                                }
+                                
+                            }?></option>
+                          </optgroup>
+                          
+                        </select>
                 </div>
                 <div class="form-group">
                     <label for="fecha">Fecha: </label>

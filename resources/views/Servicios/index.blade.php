@@ -66,6 +66,17 @@
                     Agregar Servicio
                     <div class="card-body">
                         <form method="POST" action="{{route("servicios.store")}}">
+
+                            @error('tipo_servicio')
+                                <div class="alert alert-danger">{{ 'El Tipo de servicio debe ingresarse' }}</div>
+                            @enderror
+                            @error('duracion_estandar')
+                                <div class="alert alert-danger">{{ 'La duracion estandar del servicio debe ingresarse'}}</div>
+                            @enderror
+                            @error('valor_estandar')
+                                <div class="alert alert-danger">{{ 'El valor estandar del servicio debe ingresarse'}}</div>
+                            @enderror
+
                             @csrf
                             <div class="form-group">
                                 <label for="tipo_servicio">Tipo servicio:</label>

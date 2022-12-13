@@ -52,18 +52,6 @@
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
-
-                        <?php
-                    
-                        ?>
-                        <td class="text-center" style="width: 1rem">
-                            <a  href="{{route("citas.index",)}}?" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Citas">
-                                <i class="far fa-clock"></i>
-                            </a >
-                            
-
-
-                        </td>
                     </tr>
                     @endforeach
             </table>
@@ -74,6 +62,16 @@
                     Agregar Cliente
                     <div class="card-body">
                         <form method="POST" action="{{route("clientes.store")}}">
+
+                            @error('rut')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            @error('nombre')
+                                <div class="alert alert-danger">{{ $message}}</div>
+                            @enderror
+                            @error('mail')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             @csrf
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
