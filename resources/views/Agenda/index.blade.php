@@ -42,11 +42,12 @@
                 {{-- EN INGLES ID POR QUE FULLCALENDAR LO USA ASI --}}
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el titulo del evento" required>
               </div>
-              <P></P>
-
+              
+              
+             
               <label for="clientes">Cliente:</label>
-              <select name="clientes" id="clientes" required>
-                <optgroup label="Clientes inscritos">
+              <select name="clientes" id="clientes" :required>
+                {{-- <optgroup label="Clientes inscritos"> --}}
                   <option value=""></option>
                   @foreach ($clientes as $cl)
 
@@ -56,11 +57,12 @@
                 </optgroup>
                 
               </select>
-
+              <label id="errorCliente"></label>
+              <p></p>
               <label for="servicios">Servicio:</label>
-              <select name="servicios" id="servicios" required>
-                <optgroup label="Servicios disponibles">
-                  <option value="">None</option>
+              <select name="servicios" id="servicios" :required>
+                {{-- <optgroup label="Servicios disponibles"> --}}
+                  <option value=""></option>
                   @foreach ($servicios as $sv)
 
                   <option value="{{$sv->tipo_servicio}}">{{$sv->tipo_servicio}}</option>
@@ -69,6 +71,7 @@
                 </optgroup>
                 
               </select>
+              <label id="errorServicio"></label>
               <div class="form-group col-md-4">
                 <label >Hora</label>
                 <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
@@ -83,7 +86,7 @@
 
             <P></P>
 
-            <div class="form-group">
+            <div class="form-group d-none">
               <label for="descripcion">Descripcion evento</label>
               <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
             </div>

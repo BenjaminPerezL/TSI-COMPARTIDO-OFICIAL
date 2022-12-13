@@ -134,8 +134,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  //CLICK EN BTN GUARDAR
-  //al hacer click en btn guardar, se recolectan datos ingresados
+  //-----------CLICK EN BTN GUARDAR, VALIDACIONES
+  document.getElementById("btnGuardar").addEventListener("click",function(){
+    var serv = document.getElementById('servicios');
+    var errorServ = serv.options[serv.selectedIndex].innerHTML;
+    var clie = document.getElementById('clientes');
+    var errorClie = clie.options[clie.selectedIndex].innerHTML;
+    
+    if(errorServ==""){
+      document.getElementById('errorServicio').textContent = "Debe elegir un servicio";
+    }else{
+      document.getElementById('errorServicio').textContent = "";
+    }
+    if(errorClie==""){
+      document.getElementById('errorCliente').textContent = "Debe elegir un cliente";
+    }else{
+      document.getElementById('errorCliente').textContent = "";
+    }
+
+  });
+
+
+  //---------FUNCION Q GUARDA AL HACER SUBMIT EL FORM-------------
+
   document.getElementById("formularioEvento").addEventListener("submit",function(){
     
     enviarDatos("/agenda/agregar");
@@ -154,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //FUNCION EDITAR Y BORRAR
   function enviarDatos(url){
     formulario.start.value = formulario.start.value.substring(0,10)+" "+document.getElementById('txtHora').value
-    alert(formulario.start.value );
+    //alert(formulario.start.value );
     var hora = document.getElementById('txtHora').value.substring(0,2);
     hora = parseInt(hora, 10);
     var minutos = document.getElementById('txtHora').value.substring(3,5)
