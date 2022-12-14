@@ -88,14 +88,11 @@
                 <label >Test</label>
                 <input type="text"  class="form-control" name="txtHora" id="test" aria-describedby="helpId" placeholder="test">
               </div>
-              
             </div>
-            
             <P></P>
-
-            <div class="form-group d-none">
+            <div class="form-group">
               <label for="descripcion">Descripcion evento</label>
-              <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
+              <input type="text" id = "descripcion" name="descripcion" class="form-control" >
             </div>
 
             

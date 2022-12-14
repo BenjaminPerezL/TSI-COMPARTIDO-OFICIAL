@@ -191,6 +191,12 @@
                             <i class="far fa-edit"></i>
                         </a>
                     </td>
+                    
+                    <td class="text-center" style="width: 1rem">
+                        <a href="{{route("boletas.index",$ev->id)}}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Crear boleta">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </table>

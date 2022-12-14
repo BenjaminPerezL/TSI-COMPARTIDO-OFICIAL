@@ -76,7 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             formulario.title.value = respuesta.data.title;
             
             formulario.descripcion.value = respuesta.data.descripcion;
-            
+            document.getElementById("clientes").value = respuesta.data.clientes;
+            document.getElementById("servicios").value = respuesta.data.title;
             document.getElementById('txtHora').value = respuesta.data.start.substring(11,16);
         
 
@@ -122,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var serv = document.getElementById('clientes');
     var texto = serv.options[serv.selectedIndex].innerHTML;
-    document.getElementById('descripcion').value = texto;
   });    
 
 
@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var errorServ = serv.options[serv.selectedIndex].innerHTML;
     var clie = document.getElementById('clientes');
     var errorClie = clie.options[clie.selectedIndex].innerHTML;
-    
     if(errorServ==""){
       document.getElementById('errorServicio').textContent = "Debe elegir un servicio";
     }else{
@@ -151,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }else{
       document.getElementById('errorCliente').textContent = "";
     }
-
   });
 
 
@@ -199,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var est = document.getElementById('estado');
     var estado = est.options[est.selectedIndex].innerHTML;
-    formulario.descripcion.value +="-"+estado ;
     const datos=new FormData(formulario);
     const nuevaURL = baseURL+url;
     //axios permite enviar info( url , datos)
@@ -222,20 +219,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  function enviarEventoCita(){
-    const datosEvento=new FormData(formulario);
-    axios.post("localhost:8000/citas", {
-      rut_cliente: datosEvento.start,
-      tipo_servicio: tipo_servicio,
-      fecha: fecha,
-      hora: hora,
-      descripcion: descripcion,
-      estado: estado,
-    })
-    .then((response) => {
-      console.log(response);
-    });
-  }
+  //function enviarEventoCita(){
+    //const datosEvento=new FormData(formulario);
+    //axios.post("localhost:8000/citas", {
+      //rut_cliente: datosEvento.start,
+      //tipo_servicio: tipo_servicio,
+      //fecha: fecha,
+      //hora: hora,
+      //descripcion: descripcion,
+      //estado: estado,
+    //})
+    //.then((response) => {
+      //console.log(response);
+    //});
+  //}
 
   //CAMBIAR HORA 
 

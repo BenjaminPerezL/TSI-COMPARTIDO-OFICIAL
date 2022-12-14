@@ -11,13 +11,13 @@ class Evento extends Model
 
     static $rules=[
         'title'=>'required',
-        'descripcion'=>'required',
         'start'=>'required',
         'end'=>'required',
-
+        'clientes'=>'required',
+        'estado'=>'required',
     ];
 
     
     //ayuda a distinguir cuales son los datos con los q se trabajara
-    protected $fillable=['title','descripcion','start','end'];
+    protected $fillable=['title','descripcion','start','end','clientes','estado'];
 }

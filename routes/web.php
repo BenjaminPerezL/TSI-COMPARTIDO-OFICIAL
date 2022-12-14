@@ -61,7 +61,6 @@ Route::delete('/boletas_cita/{boleta_cita}', [BoletasCitaController::class,'dest
 Route::get('/boletas_cita/{boleta_cita}/edit', [BoletasCitaController::class, 'edit'])->name('boletas.edit');
 Route::put('/boletas_cita/{boleta_cita}',[BoletasCitaController::class,'update'])->name('boletas.update');
 
-
 //RUTAS DE TEST
  Route::get('/test', [TestController::class, 'index'])->name('test.index');
 // Route::post('/test/mostrar', [App\Http\Controllers\EventosController::class, 'show']);

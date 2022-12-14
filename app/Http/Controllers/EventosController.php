@@ -20,8 +20,7 @@ class EventosController extends Controller
 
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('agenda.index')->with(compact("clientes"));
+        
         //return view('agenda.index');
     }
 

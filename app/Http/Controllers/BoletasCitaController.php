@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BoletaCita;
+use App\Models\Servicio;
+use App\Models\Evento;
 class BoletasCitaController extends Controller
 {
     public function __construct() {
@@ -11,7 +13,8 @@ class BoletasCitaController extends Controller
     }
     public function index(){
         $boletas_cita = BoletaCita::all() ;
-        return view('boletas.index',compact("boletas_cita"));
+        $servicios = Servicio::all();
+        return view('boletas.index')->with(compact("boletas_cita"))->with(compact('servicios'));
     }
     public function store(Request $request){
         $boleta_cita = new BoletaCita();

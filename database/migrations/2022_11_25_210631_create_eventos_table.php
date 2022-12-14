@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->string("title",255);
-            $table->text("descripcion");
-
-            
+            $table->text("descripcion")->null();
+            $table->string('clientes',15);
+            $table->string('estado',50);
 
             $table->dateTime("start");
             $table->dateTime("end");

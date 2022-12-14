@@ -18,8 +18,8 @@
                 <thead>
                     <tr>
                         <th>Pago</th>
-                        <th>descripcion</th>
-                        <th>tipo de pago</th>
+                        <th>Descripcion</th>
+                        <th>Tipo de pago</th>
                     </tr>
                 </thead>
                 @foreach ($boletas_cita as $bct)
