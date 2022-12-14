@@ -46,12 +46,6 @@ Route::delete('/clientes/{cliente}', [ClientesController::class,'destroy'])->nam
 Route::get('/clientes/{cliente}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
 Route::put('/clientes/{cliente}',[ClientesController::class,'update'])->name('clientes.update');
 
-Route::get('/citas', [CitasController::class, 'index'])->name('citas.index');
-Route::POST('/citas', [CitasController::class, 'store'])->name('citas.store');
-Route::delete('/citas/{cita}', [CitasController::class,'destroy'])->name('citas.destroy');
-Route::get('/citas/{cita}/edit', [CitasController::class, 'edit'])->name('citas.edit');
-Route::put('/citas/{cita}',[CitasController::class,'update'])->name('citas.update');
-
 Route::POST('/usuarios/login', [UsuariosController::class, 'login'])->name('usuarios.login');
 Route::get('/usuarios/logout', [UsuariosController::class, 'logout'])->name('usuarios.logout');
 
@@ -61,6 +55,11 @@ Route::delete('/boletas_cita/{boleta_cita}', [BoletasCitaController::class,'dest
 Route::get('/boletas_cita/{boleta_cita}/edit', [BoletasCitaController::class, 'edit'])->name('boletas.edit');
 Route::put('/boletas_cita/{boleta_cita}',[BoletasCitaController::class,'update'])->name('boletas.update');
 
+Route::get('/eventos', [EventosController::class, 'index'])->name('eventos.index');
+Route::POST('/eventos', [EventosController::class, 'store2'])->name('eventos.store');
+Route::delete('/eventos/{evento}', [EventosController::class,'destroy2'])->name('eventos.destroy');
+Route::get('/eventos/{evento}/edit', [EventosController::class, 'edit2'])->name('eventos.edit');
+Route::put('/eventos/{evento}',[EventosController::class,'update2'])->name('eventos.update');
 //RUTAS DE TEST
  Route::get('/test', [TestController::class, 'index'])->name('test.index');
 // Route::post('/test/mostrar', [App\Http\Controllers\EventosController::class, 'show']);

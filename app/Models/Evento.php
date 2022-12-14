@@ -16,6 +16,10 @@ class Evento extends Model
         'end'=>'required',
         'clientes'=>'required',
         'estado'=>'required',
+<<<<<<< HEAD
+=======
+        'descripcion' =>'required',
+>>>>>>> 15cfe488d1f9e29623847916f60a93ef6c45afde
     ];
 
     
