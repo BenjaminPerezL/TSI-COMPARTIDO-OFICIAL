@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('estado',20);
             $table->string('rut_cliente',15);
             $table->timestamps();
+            $table->foreign('rut_cliente')->references('rut')->on('clientes');
         });
     }
 

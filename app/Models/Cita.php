@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cita extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $table = "citas";
 
-    public function citas(){
+    public function citas()
+    {
         return $this->hasMany('App\Models\Cita');
     }
 }
+
+    
