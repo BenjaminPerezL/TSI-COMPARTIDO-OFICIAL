@@ -61,6 +61,11 @@ Route::delete('/boletas_cita/{boleta_cita}', [BoletasCitaController::class,'dest
 Route::get('/boletas_cita/{boleta_cita}/edit', [BoletasCitaController::class, 'edit'])->name('boletas.edit');
 Route::put('/boletas_cita/{boleta_cita}',[BoletasCitaController::class,'update'])->name('boletas.update');
 
+Route::get('/eventos', [EventosController::class, 'index'])->name('eventos.index');
+Route::POST('/eventos', [EventosController::class, 'store2'])->name('eventos.store');
+Route::delete('/eventos/{evento}', [EventosController::class,'destroy2'])->name('eventos.destroy');
+Route::get('/eventos/{evento}/edit', [EventosController::class, 'edit2'])->name('eventos.edit');
+Route::put('/eventos/{evento}',[EventosController::class,'update2'])->name('eventos.update');
 //RUTAS DE TEST
  Route::get('/test', [TestController::class, 'index'])->name('test.index');
 // Route::post('/test/mostrar', [App\Http\Controllers\EventosController::class, 'show']);
