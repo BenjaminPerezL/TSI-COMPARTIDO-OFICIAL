@@ -46,12 +46,6 @@ Route::delete('/clientes/{cliente}', [ClientesController::class,'destroy'])->nam
 Route::get('/clientes/{cliente}/edit', [ClientesController::class, 'edit'])->name('clientes.edit');
 Route::put('/clientes/{cliente}',[ClientesController::class,'update'])->name('clientes.update');
 
-Route::get('/citas', [CitasController::class, 'index'])->name('citas.index');
-Route::POST('/citas', [CitasController::class, 'store'])->name('citas.store');
-Route::delete('/citas/{cita}', [CitasController::class,'destroy'])->name('citas.destroy');
-Route::get('/citas/{cita}/edit', [CitasController::class, 'edit'])->name('citas.edit');
-Route::put('/citas/{cita}',[CitasController::class,'update'])->name('citas.update');
-
 Route::POST('/usuarios/login', [UsuariosController::class, 'login'])->name('usuarios.login');
 Route::get('/usuarios/logout', [UsuariosController::class, 'logout'])->name('usuarios.logout');
 
