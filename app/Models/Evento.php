@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Evento extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     static $rules=[
         'title'=>'required',
@@ -15,9 +16,10 @@ class Evento extends Model
         'end'=>'required',
         'clientes'=>'required',
         'estado'=>'required',
+        
     ];
 
     
     //ayuda a distinguir cuales son los datos con los q se trabajara
-    protected $fillable=['title','descripcion','start','end','clientes','estado'];
+    protected $fillable=['title','descripcion','start','end','clientes','estado','deleted_at'];
 }

@@ -92,7 +92,7 @@
             <P></P>
             <div class="form-group">
               <label for="descripcion">Descripcion evento</label>
-              <input type="text" id = "descripcion" name="descripcion" class="form-control" >
+              <input type="text" id = "descripcion" name="descripcion" class="form-control" required>
             </div>
 
             
