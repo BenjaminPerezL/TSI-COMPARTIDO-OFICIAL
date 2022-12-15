@@ -14,6 +14,9 @@
     </div>
     <div class="row">
         <div class="col-8">
+
+
+            {{-- ------------ LISTA BOLETAS -------------}}
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
@@ -34,6 +37,8 @@
                         <td>
                             {{$bct->tipo_de_pago}}
                         </td>
+
+        {{-- ------------BOTONES LISTADO -------------}}
                         <td class="text-center" style="width: 1rem">
                             <form method="POST" action="{{route('boletas.destroy',$bct->id)}}">
                                 @csrf
@@ -54,6 +59,9 @@
                     @endforeach
             </table>
         </div>
+
+{{-- ------------------------------NUEVA BOLETA ------------------------------------}}
+
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
