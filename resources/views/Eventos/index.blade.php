@@ -2,6 +2,7 @@
 
 @section('hojas-estilo')
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script></script>
 @endsection
 
 @section('contenido-principal')
@@ -92,7 +93,9 @@
                     @error('title')
                         <div class="alert alert-danger">{{ 'El servicio es requerido' }}</div>
                     @enderror
-                    
+                    @error('start')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     @error('descripcion')
                     <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
                     @enderror

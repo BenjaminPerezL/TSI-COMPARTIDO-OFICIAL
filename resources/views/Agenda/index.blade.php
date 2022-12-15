@@ -28,7 +28,6 @@
             {{-- token q permite identificar q info llega desde este form --}}
             {{ csrf_field() }}
             
-
             <div class="form-group d-none">
               <label for="id">ID:</label>
               <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
@@ -74,7 +73,7 @@
               <label id="errorServicio" style="color: red"></label>
               <div class="form-group col-md-4">
                 <label >Hora</label>
-                <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required>
+                <input type="time" min="09:00" max="19:00" step="1800" default="12:00" class="form-control" name="txtHora" id="txtHora" aria-describedby="helpId" placeholder="Hora" required >
               </div>
               <p></p>
               <div class="form-group">

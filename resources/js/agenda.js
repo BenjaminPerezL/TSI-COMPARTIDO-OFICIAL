@@ -1,6 +1,7 @@
 //import { Calendar } from 'fullcalendar/core';
 //import interactionPlugin from 'fullcalendar/interaction';
 import axios, {isCancel, AxiosError} from 'axios';
+import { Alert } from 'bootstrap';
 
 
 
@@ -135,22 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   //-----------CLICK EN BTN GUARDAR, VALIDACIONES
-  document.getElementById("btnGuardar").addEventListener("click",function(){
-    var serv = document.getElementById('servicios');
-    var errorServ = serv.options[serv.selectedIndex].innerHTML;
-    var clie = document.getElementById('clientes');
-    var errorClie = clie.options[clie.selectedIndex].innerHTML;
-    if(errorServ==""){
-      document.getElementById('errorServicio').textContent = "Debe elegir un servicio";
-    }else{
-      document.getElementById('errorServicio').textContent = "";
-    }
-    if(errorClie==""){
-      document.getElementById('errorCliente').textContent = "Debe elegir un cliente";
-    }else{
-      document.getElementById('errorCliente').textContent = "";
-    }
-  });
+  
 
 
   //---------FUNCION Q GUARDA AL HACER SUBMIT EL FORM-------------
@@ -211,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ).catch(
         error=>{
           if(error.response){
-            console.log(error.response.data)
+            alert('Error, esta hora ya esta inscrita')
           }
         }
       )

@@ -84,7 +84,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="duracion_estandar">Duracion Estandar:</label>
-                                <input type="text" id="duracion_estandar" name="duracion_estandar" class="form-control">
+                                <input type="text" id="duracion_estandar" name="duracion_estandar" class="form-control" value="30">
                             </div>
                             <div class="form-group">
                                 <label for="valor_estandar">Valor Estandar:</label>

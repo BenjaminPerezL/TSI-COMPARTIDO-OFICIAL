@@ -11,8 +11,9 @@ class Evento extends Model
     use HasFactory,SoftDeletes;
 
     static $rules=[
+        
         'title'=>'required',
-        'start'=>'required',
+        'start'=>'required|unique:eventos,start,start',
         'end'=>'required',
         'clientes'=>'required',
         'estado'=>'required',

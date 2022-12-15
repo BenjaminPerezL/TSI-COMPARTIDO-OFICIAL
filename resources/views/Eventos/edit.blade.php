@@ -118,7 +118,7 @@
 
 <div class="row">
 <div class="col">
-    <a href="{{route('citas.index')}}" class="btn btn-info">Volver a Cita</a>
+    <a href="{{route('eventos.index')}}" class="btn btn-info">Volver a Cita</a>
 </div>
 </div>
 @endsection

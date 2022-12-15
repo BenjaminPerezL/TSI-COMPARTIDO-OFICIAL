@@ -38,7 +38,7 @@ class ClientesController extends Controller
     }
     public function update(Cliente $cliente,Request $request){
         $this->validate($request,[
-            'rut'=> 'required',
+            'rut'=> 'required|unique:clientes',
             'nombre'=> 'required',
             'mail'=> 'required',
             
