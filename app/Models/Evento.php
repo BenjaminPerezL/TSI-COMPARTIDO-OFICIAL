@@ -15,12 +15,12 @@ class Evento extends Model
         'title'=>'required',
         'start'=>'required|unique:eventos,start',
         'end'=>'required',
-        'clientes'=>'required',
+        'rut_cliente'=>'required',
         'estado'=>'required',
         'descripcion' =>'required',
     ];
 
     
     //ayuda a distinguir cuales son los datos con los q se trabajara
-    protected $fillable=['title','descripcion','start','end','clientes','estado','deleted_at'];
+    protected $fillable=['title','descripcion','start','end','rut_cliente','estado','deleted_at'];
 }

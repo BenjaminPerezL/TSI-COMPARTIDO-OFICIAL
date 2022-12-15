@@ -18,6 +18,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Tipo de servicio</th>
                         <th>Fecha</th>
                         <th>Hora</th>
@@ -30,6 +31,9 @@
                 @foreach ($eventos as $ev)
                 <tr>
                     <td>
+                        {{$ev->id}}
+                    </td>
+                    <td>
                         {{$ev->title}}
                     </td>
                     <td>
@@ -41,7 +45,7 @@
                     <td>
                         <?php
                             foreach ($clientes as $cl) {
-                                if ($ev->clientes == $cl->rut) {
+                                if ($ev->rut_cliente == $cl->rut) {
                                     echo $cl->nombre;
                                 }
                             }

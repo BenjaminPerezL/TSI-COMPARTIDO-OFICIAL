@@ -16,15 +16,17 @@ return new class extends Migration
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
 
-            $table->string("title",255);
+            $table->string("title",30);
             $table->text("descripcion")->null();
-            $table->string('clientes',15);
+            $table->string('rut_cliente',15);
             $table->string('estado',50);
 
             $table->dateTime("start");
             $table->dateTime("end");
             
             $table->timestamps();
+            $table->foreign('rut_cliente')->references('rut')->on('clientes');
+            //$table->foreign('title')->references('tipo_servicio')->on('servicios');
         });
     }
 

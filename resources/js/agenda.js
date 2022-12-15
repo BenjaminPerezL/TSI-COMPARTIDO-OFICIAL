@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formulario.title.value = respuesta.data.title;
             
             formulario.descripcion.value = respuesta.data.descripcion;
-            document.getElementById("clientes").value = respuesta.data.clientes;
+            document.getElementById("rut_cliente").value = respuesta.data.rut_cliente;
             document.getElementById("servicios").value = respuesta.data.title;
             document.getElementById('txtHora').value = respuesta.data.start.substring(11,16);
         
@@ -120,9 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
    // funcion q al cambiar cmbbx clientes cambia el titulo
 
-   document.getElementById("clientes").addEventListener("click",function(){
+   document.getElementById("rut_cliente").addEventListener("click",function(){
 
-    var serv = document.getElementById('clientes');
+    var serv = document.getElementById('rut_cliente');
     var texto = serv.options[serv.selectedIndex].innerHTML;
   });    
 

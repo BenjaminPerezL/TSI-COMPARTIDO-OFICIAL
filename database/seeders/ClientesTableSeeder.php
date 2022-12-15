@@ -23,7 +23,16 @@ class ClientesTableSeeder extends Seeder
             ['nombre' => 'juan',
             'rut' => '21475934-6',
             'mail' => 'juan@gmail.com'
+            ],
+            ['nombre' => 'Cata',
+            'rut' => '18456789-8',
+            'mail' => 'cata@gmail.com'
+            ],
+            ['nombre' => 'Lucas',
+            'rut' => '15875384-7',
+            'mail' => 'lucas@gmail.com'
             ]
+            
             
         ]);
     }

@@ -44,8 +44,8 @@
               
               
              
-              <label for="clientes">Cliente:</label>
-              <select name="clientes" id="clientes" required>
+              <label for="rut_cliente">Cliente:</label>
+              <select name="rut_cliente" id="rut_cliente" required>
                 {{-- <optgroup label="Clientes inscritos"> --}}
                   <option value="">None</option>
                   @foreach ($clientes as $cl)
