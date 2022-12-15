@@ -96,6 +96,9 @@
                     @error('start')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+                    @error('end')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     @error('descripcion')
                     <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
                     @enderror
@@ -129,23 +132,23 @@
                       </optgroup>
                       
                     </select>
-                        <div class="form-group">
-                            <label for="start">start: </label>
-                            <input type="datetime-local" id = "start" name="start" class="form-control" min="2013-10-08T12:05:00" max="2024-10-08T12:05:00">
-                        </div>
-                        <div class="form-group">
-                            <label for="end">end: </label>
-                            <input type="datetime-local" id = "end" name="end" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Descripcion: </label>
-                            <input type="text" id = "descripcion" name="descripcion" class="form-control">
-                        </div>
+                    <div class="form-group">
+                        <label for="start">Inicio: </label>
+                        <input type="datetime-local" id = "start" name="start" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="end">Termino: </label>
+                        <input type="datetime-local" id = "end" name="end" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion: </label>
+                        <input type="text" id = "descripcion" name="descripcion" class="form-control" >
+                    </div>
                         <div class="form-group">
                             <label for="estado">Estado: </label>
                             <select name="estado" id="estado">
-                                <option value="completado">Completado</option>
                                 <option value="espera">Espera</option>
+                                <option value="completado">Completado</option>
                             </select>
                         </div>
                         

@@ -10,8 +10,6 @@ use App\Models\Servicio;
 class EventosController extends Controller
 {
 
-
-
     public function __construct() {
         //verifica que se inicie sesion antes de construir
         $this->middleware('auth');
@@ -41,9 +39,8 @@ class EventosController extends Controller
         //validar
         request()->validate(Evento::$rules);
 
-        //crea con todos los datos llegados
         $evento = Evento::create($request->all());
-
+        
         return redirect()->route('eventos.index');
     }
     public function show(Evento $evento){

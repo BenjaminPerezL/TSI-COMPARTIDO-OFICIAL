@@ -12,15 +12,22 @@
         <div class="card-body">
             <form method="POST" action="{{route('eventos.update',$evento->id)}}" enctype="multipart/form-data">
 
-                @error('rut_cliente')
-                <div class="alert alert-danger">{{ 'El cliente es requerido' }}</div>
-                 @enderror
-                @error('tipo_servicio')
-                    <div class="alert alert-danger">{{ 'El servicio es requerido' }}</div>
-                @enderror
-                @error('descripcion')
+                @error('clientes')
+                        <div class="alert alert-danger">{{ 'El cliente es requerido' }}</div>
+                    @enderror
+            
+                    @error('title')
+                        <div class="alert alert-danger">{{ 'El servicio es requerido' }}</div>
+                    @enderror
+                    @error('start')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    @error('end')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    @error('descripcion')
                     <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
-                @enderror
+                    @enderror
 
 
                 @csrf
@@ -80,11 +87,11 @@
                         </select>
                 </div>
                 <div class="form-group">
-                    <label for="start">start: </label>
-                    <input type="datetime-local" id = "start" name="start" class="form-control" min="2013-10-08T12:05:00" max="2024-10-08T12:05:00" value="{{$evento->start}}">
+                    <label for="start">Inicio: </label>
+                    <input type="datetime-local" id = "start" name="start" class="form-control"  value="{{$evento->start}}">
                 </div>
                 <div class="form-group">
-                    <label for="end">end: </label>
+                    <label for="end">Termino: </label>
                     <input type="datetime-local" id = "end" name="end" class="form-control" value="{{$evento->end}}">
                 </div>
                 <div class="form-group">
@@ -94,8 +101,16 @@
                 <div class="form-group">
                     <label for="estado">Estado: </label>
                     <select name="estado" id="estado">
-                        <option value="espera">Espera</option>
-                        <option value="completado">Completado</option>
+                        <option value="{{$evento->estado}}">{{$evento->estado}}</option>
+                        <option value="<?php if ($evento->estado == 'completado') {
+                            echo 'espera';
+                        }else {
+                            echo 'completado';
+                        }?>"><?php if ($evento->estado == 'completado') {
+                            echo 'espera';
+                        }else {
+                            echo 'completado';
+                        }?></option>
                     </select>
                 </div>
                 

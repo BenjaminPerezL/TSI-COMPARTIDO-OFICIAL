@@ -65,17 +65,36 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
-                    Agregar Cita
+                    Agregar Boleta
                     <div class="card-body">
                         <form method="POST" action="{{route("boletas.store")}}">
+                            <form method="POST" action="{{route("eventos.store")}}">
+
+                                @error('id_cita')
+                                    <div class="alert alert-danger">{{ 'El id de la cita es nesesario' }}</div>
+                                @enderror
+                        
+                                @error('cantidad_pagada')
+                                    <div class="alert alert-danger">{{ 'Ingrese su pago' }}</div>
+                                @enderror
+                                
+                                @error('descripcion')
+                                <div class="alert alert-danger">{{ 'La descripcion es requerida' }}</div>
+                                @enderror
                             @csrf
-                            <div class="form-group">
-                                <label for="id_cita">Id_cita</label>
-                                <input type="text" id="id_cita" name="id_cita" class="form-control">
-                            </div>
+                            <label for="id_cita">Id:</label>
+                            <select name="id_cita" id="id_cita">
+                                <optgroup label="Clientes inscritos">
+                                <option ></option>
+                                    @foreach ($eventos as $ev)
+                                        <option value="{{$ev->id}}">{{$ev->id}}</option>
+                                    @endforeach
+                                </optgroup>
+            
+                            </select>
                             <div class="form-group">
                                 <label for="cantidad_pagada">Cantidad pagada:</label>
-                                <input type="text" id="cantidad_pagada" name="cantidad_pagada" class="form-control">
+                                <input type="text" id="cantidad_pagada" name="cantidad_pagada" class="form-control" >
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Descripcion:</label>

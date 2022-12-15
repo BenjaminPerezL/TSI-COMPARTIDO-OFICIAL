@@ -13,7 +13,7 @@ class Evento extends Model
     static $rules=[
         
         'title'=>'required',
-        'start'=>'required|unique:eventos,start,start',
+        'start'=>'required|unique:eventos,start',
         'end'=>'required',
         'clientes'=>'required',
         'estado'=>'required',
